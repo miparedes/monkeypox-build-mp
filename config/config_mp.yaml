@@ -19,7 +19,9 @@ auspice_name: "monkeypox_hmpxv1"
 ## taking these parameters from Nashwa
 min_date: 2022
 min_length: 100000
+root_seq: "--include-where strain=MK783032 strain=MK783030"
 sequences_per_group: "--sequences-per-group 50"
+
 group_by: "--group-by year month country"
 include: "--include-where strain=MK783032 strain=MK783030"
 filters: "--exclude-where outbreak!=hMPXV-1

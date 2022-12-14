@@ -47,6 +47,7 @@ rule exclude_bad:
     params:
         min_date=config["min_date"],
         min_length=config["min_length"],
+        root_seq=config["root_seq"],
     shell:
         """
         augur filter \
@@ -57,11 +58,12 @@ rule exclude_bad:
             --output-metadata {output.metadata} \
             --min-date {params.min_date} \
             --min-length {params.min_length} \
+            {params.root_seq} \
             --output-log {output.log}
         """
 
 
-rule include_A_strains:
+rule include_B_strains:
     input:
         metadata=rules.exclude_bad.output.metadata,
     output:
@@ -69,7 +71,7 @@ rule include_A_strains:
     shell:
         """
         tsv-filter -H \
-            --str-in-fld lineage:'A'\
+            --str-in-fld lineage:'B'\
             {input.metadata} \
         | tsv-select -f 1 \
         > {output.include_strains}
