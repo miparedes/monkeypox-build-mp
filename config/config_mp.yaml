@@ -21,6 +21,7 @@ min_date: 2022
 min_length: 100000
 sequences_per_group: "--sequences-per-group 50"
 group_by: "--group-by year month country"
+include: "--include-where strain=MK783032 strain=MK783030"
 filters: "--exclude-where outbreak!=hMPXV-1
                           lineage=A lineage=A.1 lineage=A.1.1 lineage=A.2 lineage=A.2.1 lineage=A.2.2 
                           accession=ON631963 accession=ON649879 accession=ON918611 accession=ON927248
